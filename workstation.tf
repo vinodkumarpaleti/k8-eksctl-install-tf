@@ -7,7 +7,7 @@ module "ec2_instance" {
   #key_name               = "user1"
   #monitoring             = true
   vpc_security_group_ids = [aws_security_group.allow_eksctl.id]
-  subnet_id              = "subnet-0ca70b417f172454c" #replace your default subnet id
+  subnet_id              = "subnet-02e028e81ae26975b" #replace your default subnet id
   user_data = file("workstation.sh")
   tags = {
     Terraform   = "true"
@@ -39,7 +39,7 @@ resource "aws_security_group" "allow_eksctl" {
 }
 
 data "aws_ami" "centos8"{
-    owners = ["289983347152"]
+    owners = ["973714476881"] #This is AMI owner account ID
     most_recent      = true
 
     filter {
